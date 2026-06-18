@@ -6,158 +6,398 @@
   <title>Munnangi Vinay | Electrical Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: #f5f7fb; color: #1f2937; line-height: 1.6; }
-    html { scroll-behavior: smooth; }
-    .container { width: 90%; max-width: 1150px; margin: auto; }
-
-    nav {
-      background: #0f172a;
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    nav .container { display: flex; justify-content: space-between; align-items: center; }
-    .logo { color: #facc15; font-size: 28px; font-weight: 700; }
-    .nav-links a {
-      color: white; text-decoration: none; margin-left: 24px; font-weight: 500; transition: 0.3s;
-    }
-    .nav-links a:hover { color: #facc15; }
-
-    .hero {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
-      color: white;
-      padding: 80px 0;
-    }
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .hero h1 { font-size: 52px; line-height: 1.2; margin-bottom: 15px; }
-    .hero h1 span { color: #facc15; }
-    .hero h2 { font-size: 24px; font-weight: 500; margin-bottom: 20px; color: #dbeafe; }
-    .hero p { font-size: 18px; margin-bottom: 30px; color: #e5e7eb; }
-
-    .btn-group { display: flex; flex-wrap: wrap; gap: 15px; }
-    .btn {
-      text-decoration: none; padding: 14px 24px; border-radius: 10px; font-weight: 600; transition: 0.3s; display: inline-block;
-    }
-    .btn-primary { background: #facc15; color: #111827; }
-    .btn-primary:hover { background: #eab308; transform: translateY(-2px); }
-    .btn-outline { border: 2px solid #facc15; color: #facc15; }
-    .btn-outline:hover { background: #facc15; color: #111827; }
-
-    .profile-card {
-      background: rgba(255,255,255,0.08);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    .profile-card img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid #facc15;
-      margin-bottom: 20px;
-    }
-    .profile-card h3 { font-size: 28px; margin-bottom: 8px; }
-    .profile-card p { margin-bottom: 8px; color: #e5e7eb; }
-
-    section { padding: 70px 0; }
-    .section-title {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 40px;
-      color: #0f172a;
-      position: relative;
-    }
-    .section-title::after {
-      content: "";
-      width: 80px;
-      height: 4px;
-      background: #facc15;
-      display: block;
-      margin: 10px auto 0;
-      border-radius: 10px;
+    :root{
+      --primary:#0f172a;
+      --secondary:#1e3a8a;
+      --accent:#d4a017;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --white:#ffffff;
+      --border:#e5e7eb;
+      --shadow:0 8px 25px rgba(15,23,42,0.08);
+      --radius:18px;
+      --max:1120px;
     }
 
-    .about-box {
-      background: white;
-      padding: 35px;
-      border-radius: 18px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      font-size: 17px;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
     }
 
-    .skills-grid, .projects-grid {
-      display: grid;
-      gap: 20px;
-    }
-    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-
-    .skill-card, .project-card, .info-card {
-      background: white;
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-      transition: 0.3s;
-    }
-    .skill-card:hover, .project-card:hover { transform: translateY(-5px); }
-    .skill-card h3, .info-card h3 { color: #1e3a8a; margin-bottom: 12px; font-size: 20px; }
-    .skill-card ul { padding-left: 18px; }
-    .skill-card li { margin-bottom: 8px; }
-    .project-card { border-top: 5px solid #facc15; }
-    .project-card h3 { color: #0f172a; margin-bottom: 12px; font-size: 22px; }
-    .project-card p { color: #4b5563; margin-bottom: 10px; }
-
-    .card-list { display: grid; gap: 20px; }
-
-    .contact {
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
-    .contact p { margin-bottom: 16px; font-size: 18px; }
-    .contact-links a {
-      display: inline-block;
-      margin: 10px;
-      text-decoration: none;
-      color: #facc15;
-      font-weight: 600;
-    }
-    .contact-links a:hover { text-decoration: underline; }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #020617;
-      color: #cbd5e1;
-      font-size: 14px;
+    html{
+      scroll-behavior:smooth;
     }
 
-    @media (max-width: 900px) {
-      .hero-content { grid-template-columns: 1fr; text-align: center; }
-      .hero h1 { font-size: 40px; }
-      .btn-group { justify-content: center; }
-      .nav-links { display: none; }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:auto;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    /* Navbar */
+    nav{
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav .wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      font-size:1.4rem;
+      font-weight:800;
+      color:var(--primary);
+    }
+
+    .logo span{
+      color:var(--accent);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:24px;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      font-weight:600;
+      font-size:0.95rem;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:var(--secondary);
+    }
+
+    /* Hero */
+    .hero{
+      padding:70px 0 50px;
+      background:linear-gradient(to right, #ffffff, #f8fbff);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#eef4ff;
+      color:var(--secondary);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:0.88rem;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:3.6rem;
+      line-height:1.1;
+      color:var(--primary);
+      margin-bottom:12px;
+      letter-spacing:-1.5px;
+    }
+
+    .hero h1 span{
+      color:var(--accent);
+    }
+
+    .hero h2{
+      font-size:1.2rem;
+      color:var(--secondary);
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.04rem;
+      margin-bottom:28px;
+      max-width:680px;
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:26px;
+    }
+
+    .btn{
+      padding:13px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:0.95rem;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      background:var(--secondary);
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      border:1.5px solid var(--border);
+      color:var(--primary);
+      background:white;
+    }
+
+    .btn-outline:hover{
+      border-color:var(--secondary);
+      color:var(--secondary);
+      transform:translateY(-2px);
+    }
+
+    .stats{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .stat{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px 18px;
+      min-width:135px;
+      box-shadow:var(--shadow);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.2rem;
+      color:var(--primary);
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:0.88rem;
+    }
+
+    /* Profile card */
+    .profile-card{
+      background:white;
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      text-align:center;
+    }
+
+    .profile-card img{
+      width:220px;
+      height:220px;
+      object-fit:cover;
+      border-radius:18px;
+      margin-bottom:18px;
+      border:4px solid #f3f4f6;
+    }
+
+    .profile-card h3{
+      font-size:1.7rem;
+      color:var(--primary);
+      margin-bottom:8px;
+    }
+
+    .profile-card p{
+      color:var(--muted);
+      margin-bottom:7px;
+    }
+
+    /* Sections */
+    section{
+      padding:55px 0;
+    }
+
+    .section-header{
+      margin-bottom:28px;
+    }
+
+    .section-header h2{
+      font-size:2rem;
+      color:var(--primary);
+      margin-bottom:8px;
+    }
+
+    .section-header p{
+      color:var(--muted);
+      max-width:700px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+
+    /* About */
+    .about-text{
+      font-size:1.02rem;
+      color:#374151;
+    }
+
+    /* Skills */
+    .grid-4,.grid-2,.grid-3{
+      display:grid;
+      gap:20px;
+    }
+
+    .grid-4{grid-template-columns:repeat(4,1fr);}
+    .grid-3{grid-template-columns:repeat(3,1fr);}
+    .grid-2{grid-template-columns:repeat(2,1fr);}
+
+    .skill-card h3,
+    .project-card h3,
+    .info-card h3{
+      color:var(--secondary);
+      font-size:1.08rem;
+      margin-bottom:12px;
+    }
+
+    .skill-card ul,
+    .project-card ul{
+      padding-left:18px;
+      color:#4b5563;
+    }
+
+    .skill-card li,
+    .project-card li{
+      margin-bottom:8px;
+    }
+
+    /* Projects */
+    .project-card{
+      border-top:4px solid var(--accent);
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .chip{
+      background:#f9fafb;
+      border:1px solid var(--border);
+      color:var(--secondary);
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:0.82rem;
+      font-weight:600;
+    }
+
+    /* Education etc */
+    .info-card p{
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    /* Contact */
+    .contact-box{
+      text-align:center;
+      padding:34px;
+    }
+
+    .contact-box h2{
+      font-size:2rem;
+      margin-bottom:10px;
+      color:var(--primary);
+    }
+
+    .contact-box p{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .contact-links{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    footer{
+      text-align:center;
+      padding:22px 0 30px;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+      .grid-4{
+        grid-template-columns:repeat(2,1fr);
+      }
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .nav-links{
+        display:none;
+      }
+      .hero h1{
+        font-size:2.5rem;
+      }
+      .grid-4{
+        grid-template-columns:1fr;
+      }
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+      .profile-card img{
+        width:180px;
+        height:180px;
+      }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="container">
-      <div class="logo">⚡ Vinay Portfolio</div>
+    <div class="container wrap">
+      <div class="logo">Vinay<span>.</span></div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -169,49 +409,77 @@
   </nav>
 
   <section class="hero">
-    <div class="container hero-content">
+    <div class="container hero-grid">
       <div>
-        <h1>Hello, I'm <span>Munnangi Vinay</span></h1>
-        <h2>Electrical & Electronics Engineering Student</h2>
+        <div class="tag">Electrical & Electronics Engineering</div>
+        <h1>Munnangi <span>Vinay</span></h1>
+        <h2>EEE Student | Power Electronics | EV Systems</h2>
         <p>
-          Motivated EEE undergraduate with strong academic performance (CGPA: 8.68) and interest in 
-          Power Electronics, Electric Vehicles, Electrical Machines, Power Systems, MATLAB/Simulink, 
-          and Embedded Systems. Seeking internship or entry-level opportunities in core electrical domains.
+          Motivated Electrical and Electronics Engineering undergraduate with strong academic performance
+          (CGPA: 8.68) and practical interest in power electronics, electric vehicles, electrical machines,
+          power systems, simulation, and embedded tools. Seeking internship or entry-level opportunities
+          in core electrical domains.
         </p>
-        <div class="btn-group">
+
+        <div class="btn-row">
           <a href="Resume_Vinay.pdf" target="_blank" class="btn btn-primary">Download Resume</a>
           <a href="mailto:munnangivinay0505@gmail.com" class="btn btn-outline">Hire Me</a>
           <a href="https://linkedin.com/in/vinay-munnangi" target="_blank" class="btn btn-outline">LinkedIn</a>
           <a href="https://github.com/munnangivinay" target="_blank" class="btn btn-outline">GitHub</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>8.68</strong>
+            <span>CGPA</span>
+          </div>
+          <div class="stat">
+            <strong>2+</strong>
+            <span>Projects</span>
+          </div>
+          <div class="stat">
+            <strong>2</strong>
+            <span>NPTEL Certifications</span>
+          </div>
         </div>
       </div>
 
       <div class="profile-card">
         <img src="passpicvinay_413x5161.jpg" alt="Munnangi Vinay">
         <h3>Munnangi Vinay</h3>
-        <p>B.Tech - EEE</p>
-        <p>CGPA: 8.68 / 10</p>
+        <p>B.Tech – Electrical & Electronics Engineering</p>
         <p>Vijayawada, India</p>
+        <p>+91 70930 15388</p>
+        <p>munnangivinay0505@gmail.com</p>
       </div>
     </div>
   </section>
 
   <section id="about">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-box">
-        I am an Electrical and Electronics Engineering student passionate about power electronics, renewable energy,
-        electric vehicles, and system design. I enjoy solving technical problems, learning new tools, and working
-        on practical engineering projects. I aim to build a strong career in core electrical and power electronics domains.
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p>Focused on building strong technical knowledge in core electrical engineering and practical simulation-based work.</p>
+      </div>
+      <div class="card about-text">
+        I am an Electrical and Electronics Engineering student passionate about power electronics,
+        renewable energy systems, electric vehicles, and system design. I enjoy understanding real-world
+        engineering problems, learning through projects, and improving my technical abilities with tools
+        like MATLAB, Simulink, STM32CubeIDE, and Python. My goal is to begin my career in a core electrical
+        role where I can contribute with strong fundamentals, curiosity, and a willingness to learn.
       </div>
     </div>
   </section>
 
   <section id="skills">
     <div class="container">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
+      <div class="section-header">
+        <h2>Technical Skills</h2>
+        <p>A concise overview of my programming, core engineering, and software tool capabilities.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card skill-card">
           <h3>Programming</h3>
           <ul>
             <li>C</li>
@@ -219,7 +487,8 @@
             <li>SQL</li>
           </ul>
         </div>
-        <div class="skill-card">
+
+        <div class="card skill-card">
           <h3>Core Subjects</h3>
           <ul>
             <li>Power Electronics</li>
@@ -227,8 +496,9 @@
             <li>Power Systems</li>
           </ul>
         </div>
-        <div class="skill-card">
-          <h3>Tools</h3>
+
+        <div class="card skill-card">
+          <h3>Tools & Platforms</h3>
           <ul>
             <li>MATLAB</li>
             <li>Simulink</li>
@@ -236,7 +506,8 @@
             <li>MS Visio</li>
           </ul>
         </div>
-        <div class="skill-card">
+
+        <div class="card skill-card">
           <h3>Soft Skills</h3>
           <ul>
             <li>Teamwork</li>
@@ -251,18 +522,38 @@
 
   <section id="projects">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <p>Academic projects demonstrating simulation, analysis, and system-level understanding.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card project-card">
           <h3>Electric Vehicle Fast Charging Station</h3>
-          <p>Simulated and analyzed AC-DC and DC-DC converters used in EV fast charging stations.</p>
-          <p>Evaluated voltage regulation, current control, efficiency, and ripple characteristics.</p>
-          <p>Developed MATLAB/Simulink models to study steady-state and transient behavior.</p>
+          <ul>
+            <li>Simulated and analyzed AC–DC and DC–DC converters used in EV fast charging stations.</li>
+            <li>Evaluated voltage regulation, current control, efficiency, and ripple characteristics.</li>
+            <li>Developed MATLAB/Simulink models to study steady-state and transient behavior.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">MATLAB</span>
+            <span class="chip">Simulink</span>
+            <span class="chip">EV Systems</span>
+            <span class="chip">Power Electronics</span>
+          </div>
         </div>
-        <div class="project-card">
+
+        <div class="card project-card">
           <h3>Reduced Component Five-Level Inverter</h3>
-          <p>Designed and analyzed a five-level inverter topology with reduced power switch count.</p>
-          <p>Studied switching strategies, total harmonic distortion (THD), and switching loss reduction.</p>
+          <ul>
+            <li>Designed and analyzed a five-level inverter topology with reduced power switch count.</li>
+            <li>Studied switching strategies, total harmonic distortion (THD), and switching loss reduction.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Inverter Design</span>
+            <span class="chip">THD Analysis</span>
+            <span class="chip">Switching Strategy</span>
+          </div>
         </div>
       </div>
     </div>
@@ -270,22 +561,31 @@
 
   <section id="education">
     <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="card-list">
-        <div class="info-card">
-          <h3>B.Tech - Electrical and Electronics Engineering</h3>
+      <div class="section-header">
+        <h2>Education</h2>
+        <p>Academic consistency with strong performance in engineering and science.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card info-card">
+          <h3>B.Tech – EEE</h3>
           <p>Velagapudi Ramakrishna Siddhartha Engineering College</p>
-          <p>2023 - 2027 | CGPA: 8.68 / 10</p>
+          <p>2023 – 2027</p>
+          <p><strong>CGPA: 8.68 / 10</strong></p>
         </div>
-        <div class="info-card">
+
+        <div class="card info-card">
           <h3>Intermediate (MPC)</h3>
           <p>Sri Sarada Educational Institutions</p>
-          <p>2023 | 89.6%</p>
+          <p>2023</p>
+          <p><strong>89.6%</strong></p>
         </div>
-        <div class="info-card">
+
+        <div class="card info-card">
           <h3>10th (SSC)</h3>
           <p>Amali EM High School</p>
-          <p>2021 | 94%</p>
+          <p>2021</p>
+          <p><strong>94%</strong></p>
         </div>
       </div>
     </div>
@@ -293,13 +593,20 @@
 
   <section>
     <div class="container">
-      <h2 class="section-title">Certifications</h2>
-      <div class="card-list">
-        <div class="info-card">
+      <div class="section-header">
+        <h2>Certifications</h2>
+        <p>Continuous learning through recognized technical programs.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card info-card">
           <h3>NPTEL – Introduction to Internet of Things (IoT)</h3>
+          <p>Certification covering IoT fundamentals and connected systems concepts.</p>
         </div>
-        <div class="info-card">
+
+        <div class="card info-card">
           <h3>NPTEL – The Joy of Computing Using Python</h3>
+          <p>Certification focused on computational thinking and Python-based problem solving.</p>
         </div>
       </div>
     </div>
@@ -307,28 +614,36 @@
 
   <section>
     <div class="container">
-      <h2 class="section-title">Professional Activities</h2>
-      <div class="card-list">
-        <div class="info-card">
+      <div class="section-header">
+        <h2>Professional Activities</h2>
+        <p>Participation in engineering communities and technical exposure opportunities.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card info-card">
           <h3>Student Member, Institution of Engineers (India)</h3>
+          <p>Member of a professional engineering body supporting technical growth and networking.</p>
         </div>
-        <div class="info-card">
-          <h3>Participated in EV Workshop conducted by IIT Madras</h3>
+
+        <div class="card info-card">
+          <h3>EV Workshop conducted by IIT Madras</h3>
+          <p>Participated in a technical workshop focused on electric vehicle technology and applications.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
+  <section id="contact">
     <div class="container">
-      <h2 class="section-title" style="color:white;">Contact Me</h2>
-      <p>Email: munnangivinay0505@gmail.com</p>
-      <p>Phone: +91 70930 15388</p>
-      <p>Location: Vijayawada, India</p>
-      <div class="contact-links">
-        <a href="mailto:munnangivinay0505@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/vinay-munnangi" target="_blank">LinkedIn</a>
-        <a href="https://github.com/munnangivinay" target="_blank">GitHub</a>
+      <div class="card contact-box">
+        <h2>Contact</h2>
+        <p>Open to internship and entry-level opportunities in electrical, power electronics, and EV-related domains.</p>
+        <div class="contact-links">
+          <a href="mailto:munnangivinay0505@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="https://linkedin.com/in/vinay-munnangi" target="_blank" class="btn btn-outline">LinkedIn</a>
+          <a href="https://github.com/munnangivinay" target="_blank" class="btn btn-outline">GitHub</a>
+          <a href="Resume_Vinay.pdf" target="_blank" class="btn btn-outline">Resume</a>
+        </div>
       </div>
     </div>
   </section>
