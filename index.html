@@ -1,840 +1,1649 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Munnangi Vinay | Electrical Engineering Portfolio</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
-
-    body {
-      background: #f4f7fb;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    /* Header */
-    header {
-      background: #0b1f3a;
-      color: white;
-      padding: 18px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      color: #facc15;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-weight: 500;
-      color: #e5e7eb;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #facc15;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #0b1f3a, #123c69);
-      color: white;
-      padding: 90px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      background: rgba(250, 204, 21, 0.15);
-      top: -80px;
-      right: -80px;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
-      align-items: center;
-      gap: 40px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-
-    .hero h1 span {
-      color: #facc15;
-    }
-
-    .hero h2 {
-      font-size: 24px;
-      color: #dbeafe;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      font-size: 17px;
-      color: #e5e7eb;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: 0.3s;
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: #facc15;
-      color: #0b1f3a;
-    }
-
-    .btn-primary:hover {
-      background: #fde047;
-      transform: translateY(-3px);
-    }
-
-    .btn-secondary {
-      border: 2px solid #facc15;
-      color: #facc15;
-    }
-
-    .btn-secondary:hover {
-      background: #facc15;
-      color: #0b1f3a;
-      transform: translateY(-3px);
-    }
-
-    .profile-card {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-    }
-
-    .profile-card img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid #facc15;
-      margin-bottom: 15px;
-    }
-
-    .profile-card h3 {
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
-
-    .profile-card p {
-      margin-bottom: 5px;
-      font-size: 15px;
-    }
-
-    /* Sections */
-    section {
-      padding: 70px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
-      font-size: 34px;
-      color: #0b1f3a;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #64748b;
-    }
-
-    /* About */
-    .about-box {
-      background: white;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border-left: 6px solid #facc15;
-    }
-
-    .about-box p {
-      font-size: 17px;
-      color: #374151;
-    }
-
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .highlight-card {
-      background: #f8fafc;
-      padding: 22px;
-      border-radius: 14px;
-      text-align: center;
-      border: 1px solid #e2e8f0;
-    }
-
-    .highlight-card h3 {
-      color: #0b1f3a;
-      font-size: 26px;
-    }
-
-    .highlight-card p {
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .skill-card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-      transition: 0.3s;
-      border-top: 4px solid #0b1f3a;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-6px);
-      border-top-color: #facc15;
-    }
-
-    .skill-card h3 {
-      color: #0b1f3a;
-      margin-bottom: 12px;
-    }
-
-    .skill-card ul {
-      list-style: none;
-    }
-
-    .skill-card li {
-      padding: 6px 0;
-      color: #475569;
-    }
-
-    .skill-card li::before {
-      content: "⚡ ";
-      color: #facc15;
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .project-header {
-      background: linear-gradient(135deg, #0b1f3a, #2563eb);
-      color: white;
-      padding: 25px;
-    }
-
-    .project-header h3 {
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .project-body {
-      padding: 25px;
-    }
-
-    .project-body ul {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    .project-body li {
-      margin-bottom: 10px;
-      color: #374151;
-    }
-
-    .tags {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      background: #e0f2fe;
-      color: #075985;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* Education */
-    .timeline {
-      display: grid;
-      gap: 20px;
-    }
-
-    .timeline-card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-      border-left: 5px solid #facc15;
-    }
-
-    .timeline-card h3 {
-      color: #0b1f3a;
-      margin-bottom: 5px;
-    }
-
-    .timeline-card .year {
-      color: #2563eb;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .score {
-      display: inline-block;
-      margin-top: 10px;
-      background: #dcfce7;
-      color: #166534;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-weight: 700;
-    }
-
-    /* Certifications */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .cert-card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-      border-left: 5px solid #2563eb;
-    }
-
-    .cert-card h3 {
-      color: #0b1f3a;
-      margin-bottom: 8px;
-    }
-
-    /* Contact */
-    .contact {
-      background: #0b1f3a;
-      color: white;
-    }
-
-    .contact .section-title h2 {
-      color: white;
-    }
-
-    .contact .section-title p {
-      color: #cbd5e1;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .contact-card {
-      background: rgba(255,255,255,0.08);
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: 0.3s;
-    }
-
-    .contact-card:hover {
-      background: rgba(250,204,21,0.15);
-      transform: translateY(-5px);
-    }
-
-    .contact-card h3 {
-      color: #facc15;
-      margin-bottom: 10px;
-    }
-
-    .contact-card p {
-      color: #e5e7eb;
-      font-size: 14px;
-      word-break: break-word;
-    }
-
-    footer {
-      background: #071527;
-      color: #cbd5e1;
-      text-align: center;
-      padding: 18px;
-      font-size: 14px;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-content,
-      .projects-grid,
-      .cert-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-grid,
-      .highlights {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .skills-grid,
-      .highlights {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 60px 0;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero h2 {
-        font-size: 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munnangi Vinay | Electrical Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A2463;
+            --accent: #F5A623;
+            --dark: #1E1E2F;
+            --light: #F8F9FA;
+            --teal: #00B4D8;
+            --gradient: linear-gradient(135deg, #0A2463 0%, #1E3A8A 50%, #00B4D8 100%);
+            --card-shadow: 0 10px 40px rgba(10, 36, 99, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMATED BACKGROUND ===== */
+        .circuit-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(90deg, var(--primary) 1px, transparent 1px),
+                linear-gradient(var(--primary) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 36, 99, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        nav .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: white;
+            font-weight: 900;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 30px 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '⚡';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            bottom: 10%;
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: white;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero-text .subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            color: var(--teal);
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text .tagline {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 15px 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-box .number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+        .stat-box .label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 35px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-frame {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            animation: rotate 10s linear infinite;
+            border-top-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .profile-frame::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+            border: 2px dashed rgba(0, 180, 216, 0.3);
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.2);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            padding: 10px 18px;
+            box-shadow: var(--card-shadow);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-badge:nth-child(2) {
+            top: 20px;
+            right: -30px;
+            color: var(--primary);
+        }
+
+        .floating-badge:nth-child(3) {
+            bottom: 40px;
+            left: -40px;
+            color: var(--accent);
+            animation-delay: 1s;
+        }
+
+        .floating-badge:nth-child(4) {
+            bottom: -10px;
+            right: 20px;
+            color: var(--teal);
+            animation-delay: 2s;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 80px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .section-header .accent-line {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto 15px;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: var(--light);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .info-item i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .info-item .info-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item .info-value {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        /* ===== EDUCATION SECTION ===== */
+        .education {
+            background: var(--light);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--teal));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 35px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .timeline-item .year-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .institution {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item .score {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 166, 35, 0.1);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        .skills {
+            background: var(--dark);
+            color: white;
+        }
+
+        .skills .section-header h2 {
+            color: white;
+        }
+
+        .skills .section-header p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.1);
+        }
+
+        .skill-category h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 180, 216, 0.15);
+            color: var(--teal);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        .skill-bar-container {
+            margin-bottom: 15px;
+        }
+
+        .skill-bar-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar-header span {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .skill-bar-header .percentage {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--teal));
+            transition: width 1.5s ease;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s;
+            border: 1px solid rgba(10, 36, 99, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.2);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::after {
+            content: '⚡';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 60px;
+            opacity: 0.15;
+        }
+
+        .project-header .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-header h3 {
+            font-family: 'Rajdhani', sans-serif;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .project-header .project-type {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .project-body {
+            padding: 30px;
+        }
+
+        .project-body ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .project-body ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .project-body ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tech span {
+            background: rgba(10, 36, 99, 0.08);
+            color: var(--primary);
+            padding: 5px 14px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .certifications {
+            background: var(--light);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s;
+            border-left: 4px solid var(--accent);
+        }
+
+        .cert-card:hover {
+            transform: translateX(5px);
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .cert-info h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .cert-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* ===== ACTIVITIES ===== */
+        .activities {
+            background: white;
+        }
+
+        .activity-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .activity-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .activity-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .activity-icon {
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            background: rgba(245, 166, 35, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .activity-info h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .activity-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* ===== INTERESTS ===== */
+        .interests {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .interests .section-header h2 {
+            color: white;
+        }
+
+        .interests .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .interest-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .interest-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .interest-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .interest-card h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* ===== REFERENCES ===== */
+        .references {
+            background: var(--light);
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .ref-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ref-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 100px;
+            color: rgba(10, 36, 99, 0.05);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .ref-card .ref-quote {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .ref-card .ref-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .ref-card .ref-title {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .ref-card .ref-contact {
+            color: #999;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .ref-card .ref-contact i {
+            color: var(--teal);
+            width: 20px;
+        }
+
+        /* ===== CONTACT / FOOTER ===== */
+        .contact {
+            background: var(--dark);
+            color: white;
+            padding: 60px 30px;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact h2 span {
+            color: var(--accent);
+        }
+
+        .contact > .contact-container > p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            background: rgba(245, 166, 35, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .contact-link i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .contact-link span {
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom .bolt {
+            color: var(--accent);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-frame {
+                width: 250px;
+                height: 250px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .cert-grid,
+            .activity-cards,
+            .ref-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ELECTRIC SPARKLE CURSOR EFFECT ===== */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            z-index: 9999;
+            animation: sparkleAnim 0.6s ease-out forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">⚡ Vinay Portfolio</div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <div class="circuit-bg"></div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-
-        <div>
-          <h1>Munnangi <span>Vinay</span></h1>
-          <h2>Electrical & Electronics Engineering Student</h2>
-          <p>
-            Motivated EEE undergraduate with strong academic performance and interest in 
-            <strong>Power Electronics, Electric Vehicles, Electrical Machines, Power Systems, 
-            MATLAB/Simulink, and Embedded Systems</strong>. Seeking internship or entry-level 
-            opportunities in core electrical and power electronics domains.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="Vinay_Resume.pdf" class="btn btn-primary" download>Download Resume</a>
-            <a href="mailto:munnangivinay0505@gmail.com" class="btn btn-secondary">Hire Me</a>
-            <a href="https://www.linkedin.com/in/vinay-munnangi" target="_blank" class="btn btn-secondary">LinkedIn</a>
-            <a href="https://github.com/munnangivinay" target="_blank" class="btn btn-secondary">GitHub</a>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <!-- Replace photo.jpg with your actual photo file name -->
-          <img src="photo.jpg" alt="Munnangi Vinay">
-          <h3>Munnangi Vinay</h3>
-          <p>B.Tech - EEE</p>
-          <p>CGPA: 8.68 / 10</p>
-          <p>Vijayawada, India</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>About Me</h2>
-        <p>Short professional profile for recruiters</p>
-      </div>
-
-      <div class="about-box">
-        <p>
-          I am an Electrical and Electronics Engineering undergraduate at 
-          Velagapudi Ramakrishna Siddhartha Engineering College. My academic interests are focused on 
-          power electronics, EV charging systems, electrical machines, and renewable energy systems.
-          I enjoy working with simulation tools such as MATLAB and Simulink to analyze converter behavior, 
-          voltage regulation, current control, efficiency, ripple, and harmonic performance.
-        </p>
-
-        <div class="highlights">
-          <div class="highlight-card">
-            <h3>8.68</h3>
-            <p>Current CGPA</p>
-          </div>
-          <div class="highlight-card">
-            <h3>2+</h3>
-            <p>Academic Projects</p>
-          </div>
-          <div class="highlight-card">
-            <h3>2</h3>
-            <p>NPTEL Certifications</p>
-          </div>
-          <div class="highlight-card">
-            <h3>EEE</h3>
-            <p>Core Engineering</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-title">
-        <h2>Technical Skills</h2>
-        <p>Core electrical and software skills</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Programming</h3>
-          <ul>
-            <li>C</li>
-            <li>Python</li>
-            <li>SQL</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <h3>Core Subjects</h3>
-          <ul>
-            <li>Power Electronics</li>
-            <li>Electrical Machines</li>
-            <li>Power Systems</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <h3>Tools</h3>
-          <ul>
-            <li>MATLAB</li>
-            <li>Simulink</li>
-            <li>STM32CubeIDE</li>
-            <li>MS Visio</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <h3>Soft Skills</h3>
-          <ul>
-            <li>Teamwork</li>
-            <li>Adaptability</li>
-            <li>Problem Solving</li>
-            <li>Quick Learner</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-title">
-        <h2>Academic Projects</h2>
-        <p>Projects aligned with power electronics and EV systems</p>
-      </div>
-
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>Electric Vehicle Fast Charging Station</h3>
-            <p>Power Electronics | MATLAB/Simulink</p>
-          </div>
-          <div class="project-body">
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">M<span>V</span> ⚡</div>
             <ul>
-              <li>Simulated and analyzed AC-DC and DC-DC converters used in EV fast charging stations.</li>
-              <li>Evaluated voltage regulation, current control, efficiency, and ripple characteristics.</li>
-              <li>Developed MATLAB/Simulink models to study steady-state and transient behavior.</li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certs</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="tags">
-              <span class="tag">EV Charging</span>
-              <span class="tag">Converters</span>
-              <span class="tag">MATLAB</span>
-              <span class="tag">Simulink</span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="subtitle">⚡ ELECTRICAL & ELECTRONICS ENGINEER</div>
+                <h1>Munnangi <span>Vinay</span></h1>
+                <p class="tagline">
+                    Motivated B.Tech undergraduate (CGPA 8.68) passionate about power electronics, 
+                    EV systems, and core electrical domains. Seeking internship or entry-level 
+                    opportunities to apply skills in simulation, analysis, and system design.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="number">8.68</div>
+                        <div class="label">CGPA</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">2+</div>
+                        <div class="label">Projects</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">4+</div>
+                        <div class="label">Tools</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Hire Me
+                    </a>
+                    <a href="#projects" class="btn-secondary">
+                        <i class="fas fa-bolt"></i> View Projects
+                    </a>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>Reduced Component Five-Level Inverter</h3>
-            <p>Inverter Design | Harmonic Analysis</p>
-          </div>
-          <div class="project-body">
-            <ul>
-              <li>Designed and analyzed a five-level inverter topology with reduced power switch count.</li>
-              <li>Studied switching strategies, total harmonic distortion, and switching loss reduction.</li>
-              <li>Focused on improving inverter efficiency and output waveform quality.</li>
-            </ul>
-            <div class="tags">
-              <span class="tag">Inverter</span>
-              <span class="tag">THD</span>
-              <span class="tag">Power Switches</span>
-              <span class="tag">Power Electronics</span>
+            <div class="hero-image">
+                <div class="profile-frame">
+                    <img src="https://via.placeholder.com/350x350/0A2463/FFFFFF?text=MV" alt="Munnangi Vinay">
+                    <div class="floating-badge">⚡ Power Electronics</div>
+                    <div class="floating-badge">🔋 EV Systems</div>
+                    <div class="floating-badge">💻 MATLAB/Simulink</div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <div class="container">
-      <div class="section-title">
-        <h2>Education</h2>
-        <p>Academic background</p>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-card">
-          <h3>B.Tech - Electrical and Electronics Engineering</h3>
-          <p class="year">2023 - 2027</p>
-          <p>Velagapudi Ramakrishna Siddhartha Engineering College</p>
-          <span class="score">CGPA: 8.68 / 10</span>
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="accent-line"></div>
+                <p>Driven engineer with a passion for electrical systems and innovation</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a motivated Electrical and Electronics Engineering undergraduate with strong 
+                        academic performance and a deep interest in <strong>power electronics</strong>, 
+                        <strong>electric vehicles</strong>, and <strong>renewable energy systems</strong>.
+                    </p>
+                    <p>
+                        Through hands-on projects and certifications, I've developed proficiency in 
+                        MATLAB/Simulink, STM32CubeIDE, and core electrical domain knowledge. I'm a quick 
+                        learner who thrives in collaborative environments and is eager to contribute to 
+                        real-world engineering challenges.
+                    </p>
+                </div>
+                <div class="about-info">
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <div class="info-label">Name</div>
+                            <div class="info-value">Munnangi Vinay</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="info-label">Email</div>
+                            <div class="info-value">munnangivinay0505@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div class="info-label">Phone</div>
+                            <div class="info-value">+91 70930 15388</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="info-label">Location</div>
+                            <div class="info-value">Vijayawada, India</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <div class="info-label">LinkedIn</div>
+                            <div class="info-value">vinay-munnangi</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <div class="info-label">GitHub</div>
+                            <div class="info-value">munnangivinay</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="timeline-card">
-          <h3>Intermediate - MPC</h3>
-          <p class="year">2023</p>
-          <p>Sri Sarada Educational Institutions</p>
-          <span class="score">Score: 89.6%</span>
+    <!-- EDUCATION SECTION -->
+    <section class="education" id="education">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Education</h2>
+                <div class="accent-line"></div>
+                <p>Strong academic foundation in engineering and sciences</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <span class="year-badge">2023 – 2027</span>
+                    <h3>B.Tech – Electrical & Electronics Engineering</h3>
+                    <p class="institution">Velagapudi Ramakrishna Siddhartha Engineering College</p>
+                    <span class="score"><i class="fas fa-star"></i> CGPA: 8.68 / 10</span>
+                </div>
+                <div class="timeline-item fade-in">
+                    <span class="year-badge">2023</span>
+                    <h3>Intermediate (MPC)</h3>
+                    <p class="institution">Sri Sarada Educational Institutions</p>
+                    <span class="score"><i class="fas fa-star"></i> Score: 89.6%</span>
+                </div>
+                <div class="timeline-item fade-in">
+                    <span class="year-badge">2021</span>
+                    <h3>10th Standard (SSC)</h3>
+                    <p class="institution">Amali EM High School</p>
+                    <span class="score"><i class="fas fa-star"></i> Score: 94%</span>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="timeline-card">
-          <h3>10th - SSC</h3>
-          <p class="year">2021</p>
-          <p>Amali EM High School</p>
-          <span class="score">Score: 94%</span>
+    <!-- SKILLS SECTION -->
+    <section class="skills" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <div class="accent-line"></div>
+                <p>Tools and technologies I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-header">
+                            <span>C Programming</span>
+                            <span class="percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-header">
+                            <span>Python</span>
+                            <span class="percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-header">
+                            <span>SQL</span>
+                            <span class="percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-bolt"></i> Core Electrical</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power Electronics</span>
+                        <span class="skill-tag">Electrical Machines</span>
+                        <span class="skill-tag">Power Systems</span>
+                        <span class="skill-tag">Circuit Analysis</span>
+                        <span class="skill-tag">EV Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-header">
+                            <span>MATLAB / Simulink</span>
+                            <span class="percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-header">
+                            <span>STM32CubeIDE</span>
+                            <span class="percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-header">
+                            <span>MS Visio</span>
+                            <span class="percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Quick Learner</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Leadership</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Certifications -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <h2>Certifications & Activities</h2>
-        <p>Continuous learning and professional participation</p>
-      </div>
+    <!-- PROJECTS SECTION -->
+    <section class="projects" id="projects">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Academic Projects</h2>
+                <div class="accent-line"></div>
+                <p>Hands-on experience in electrical system design and simulation</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-type">Power Electronics</div>
+                        <div class="project-icon">🔌</div>
+                        <h3>Electric Vehicle Fast Charging Station</h3>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Simulated and analyzed AC–DC and DC–DC converters used in EV fast charging stations</li>
+                            <li>Evaluated voltage regulation, current control, efficiency, and ripple characteristics</li>
+                            <li>Developed MATLAB/Simulink models to study steady-state and transient behavior</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>Simulink</span>
+                            <span>Power Electronics</span>
+                            <span>EV Systems</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="cert-grid">
-        <div class="cert-card">
-          <h3>NPTEL - Introduction to Internet of Things</h3>
-          <p>Completed certification covering IoT concepts, sensors, connectivity, and applications.</p>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-type">Circuit Design</div>
+                        <div class="project-icon">⚡</div>
+                        <h3>Reduced Component Five-Level Inverter</h3>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Designed and analyzed a five-level inverter topology with reduced power switch count</li>
+                            <li>Studied switching strategies, total harmonic distortion (THD), and switching loss reduction</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Inverter Design</span>
+                            <span>THD Analysis</span>
+                            <span>Switching Strategies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="cert-card">
-          <h3>NPTEL - The Joy of Computing Using Python</h3>
-          <p>Completed certification focused on programming fundamentals and problem solving using Python.</p>
+    <!-- CERTIFICATIONS -->
+    <section class="certifications" id="certifications">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Certifications</h2>
+                <div class="accent-line"></div>
+                <p>Continuous learning and professional development</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Introduction to Internet of Things (IoT)</h4>
+                        <p>NPTEL Certification • Online Course</p>
+                    </div>
+                </div>
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>The Joy of Computing Using Python</h4>
+                        <p>NPTEL Certification • Online Course</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="cert-card">
-          <h3>Institution of Engineers India</h3>
-          <p>Student Member of Institution of Engineers India.</p>
+    <!-- PROFESSIONAL ACTIVITIES -->
+    <section class="activities">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Professional Activities</h2>
+                <div class="accent-line"></div>
+                <p>Engagement with the engineering community</p>
+            </div>
+            <div class="activity-cards">
+                <div class="activity-card fade-in">
+                    <div class="activity-icon">🏛️</div>
+                    <div class="activity-info">
+                        <h4>Student Member – IEI</h4>
+                        <p>Institution of Engineers (India) – Active student membership for professional networking</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in">
+                    <div class="activity-icon">🚗</div>
+                    <div class="activity-info">
+                        <h4>EV Workshop – IIT Madras</h4>
+                        <p>Participated in Electric Vehicle Workshop conducted by IIT Madras</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="cert-card">
-          <h3>EV Workshop - IIT Madras</h3>
-          <p>Participated in Electric Vehicle workshop conducted by IIT Madras.</p>
+    <!-- INTERESTS -->
+    <section class="interests">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Interests & Passions</h2>
+                <div class="accent-line"></div>
+                <p>What drives my engineering journey</p>
+            </div>
+            <div class="interests-grid">
+                <div class="interest-card fade-in">
+                    <i class="fas fa-car-battery"></i>
+                    <h4>Electric Vehicles & Power Electronics</h4>
+                </div>
+                <div class="interest-card fade-in">
+                    <i class="fas fa-solar-panel"></i>
+                    <h4>Renewable Energy Systems</h4>
+                </div>
+                <div class="interest-card fade-in">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Continuous Technical Learning</h4>
+                </div>
+                <div class="interest-card fade-in">
+                    <i class="fas fa-people-group"></i>
+                    <h4>Collaborative Team Activities</h4>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Interests -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <h2>Areas of Interest</h2>
-        <p>Domains I am actively exploring</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Electric Vehicles</h3>
-          <ul>
-            <li>EV Charging</li>
-            <li>Battery Systems</li>
-          </ul>
+    <!-- REFERENCES -->
+    <section class="references">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>References</h2>
+                <div class="accent-line"></div>
+                <p>Academic mentors and guides</p>
+            </div>
+            <div class="ref-grid">
+                <div class="ref-card fade-in">
+                    <p class="ref-quote">"Vinay has shown exceptional dedication to power electronics and consistently delivers high-quality work in simulations and analysis."</p>
+                    <div class="ref-name">Dr. B. Venkateswara Rao, Ph.D</div>
+                    <div class="ref-title">Assoc. Professor – EEE Department</div>
+                    <div class="ref-contact">
+                        <div><i class="fas fa-university"></i> VR Siddhartha Engineering College</div>
+                        <div><i class="fas fa-envelope"></i> drbvvrao@vrsiddhartha.ac.in</div>
+                        <div><i class="fas fa-phone"></i> 9392690805</div>
+                    </div>
+                </div>
+                <div class="ref-card fade-in">
+                    <p class="ref-quote">"A quick learner with strong analytical skills. Vinay actively participates in workshops and shows great potential in core electrical domains."</p>
+                    <div class="ref-name">P. Venkatesh, M.Tech (Ph.D)</div>
+                    <div class="ref-title">Asst. Professor – EEE Department</div>
+                    <div class="ref-contact">
+                        <div><i class="fas fa-university"></i> VR Siddhartha Engineering College</div>
+                        <div><i class="fas fa-envelope"></i> venki249@vrsiddhartha.ac.in</div>
+                        <div><i class="fas fa-phone"></i> 9949646439</div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="skill-card">
-          <h3>Power Electronics</h3>
-          <ul>
-            <li>Converters</li>
-            <li>Inverters</li>
-          </ul>
+    <!-- CONTACT / FOOTER -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Let's <span>Connect</span> ⚡</h2>
+            <p style="color: rgba(255,255,255,0.6); margin-bottom: 40px;">Open to internship and entry-level opportunities in power electronics and core electrical domains</p>
+            <div class="contact-links">
+                <a href="mailto:munnangivinay0505@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>munnangivinay0505@gmail.com</span>
+                </a>
+                <a href="tel:+917093015388" class="contact-link">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 70930 15388</span>
+                </a>
+                <a href="https://linkedin.com/in/vinay-munnangi" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/munnangivinay" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub Profile</span>
+                </a>
+                <a href="#" class="contact-link">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Vijayawada, India</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Munnangi Vinay | Designed with <span class="bolt">⚡</span> for Electrical Engineering Excellence</p>
+            </div>
         </div>
+    </section>
 
-        <div class="skill-card">
-          <h3>Renewable Energy</h3>
-          <ul>
-            <li>Solar Systems</li>
-            <li>Grid Integration</li>
-          </ul>
-        </div>
+    <!-- JAVASCRIPT -->
+    <script>
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        <div class="skill-card">
-          <h3>Technical Learning</h3>
-          <ul>
-            <li>Simulation</li>
-            <li>System Design</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact Me</h2>
-        <p>Open to internships, projects, and entry-level opportunities</p>
-      </div>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-      <div class="contact-grid">
-        <a href="mailto:munnangivinay0505@gmail.com" class="contact-card">
-          <h3>Email</h3>
-          <p>munnangivinay0505@gmail.com</p>
-        </a>
+        // Sparkle cursor effect
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.92) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 600);
+            }
+        });
 
-        <a href="tel:+917093015388" class="contact-card">
-          <h3>Phone</h3>
-          <p>+91 70930 15388</p>
-        </a>
+        // Animate skill bars on scroll
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.skill-bar-fill');
+                    fills.forEach(fill => {
+                        const width = fill.style.width;
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 300);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
 
-        <a href="https://www.linkedin.com/in/vinay-munnangi" target="_blank" class="contact-card">
-          <h3>LinkedIn</h3>
-          <p>linkedin.com/in/vinay-munnangi</p>
-        </a>
-
-        <a href="https://github.com/munnangivinay" target="_blank" class="contact-card">
-          <h3>GitHub</h3>
-          <p>github.com/munnangivinay</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Munnangi Vinay | Electrical & Electronics Engineering Portfolio</p>
-  </footer>
-
+        document.querySelectorAll('.skill-category').forEach(el => skillObserver.observe(el));
+    </script>
 </body>
 </html>
